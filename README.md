@@ -1,0 +1,29 @@
+# PermissionCenter
+
+[![CI Status](https://img.shields.io/travis/JuYeonYu/PermissionCenter.svg?style=flat)](https://travis-ci.org/JuYeonYu/PermissionCenter)
+[![Version](https://img.shields.io/cocoapods/v/PermissionCenter.svg?style=flat)](https://cocoapods.org/pods/PermissionCenter)
+[![License](https://img.shields.io/cocoapods/l/PermissionCenter.svg?style=flat)](https://cocoapods.org/pods/PermissionCenter)
+[![Platform](https://img.shields.io/cocoapods/p/PermissionCenter.svg?style=flat)](https://cocoapods.org/pods/PermissionCenter)
+
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+## Installation
+
+PermissionCenter is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'PermissionCenter'
+```
+
+## Author
+
+JuYeonYu, remake867@gmail.com
+
+## License
+
+PermissionCenter is available under the MIT license. See the LICENSE file for more info.
