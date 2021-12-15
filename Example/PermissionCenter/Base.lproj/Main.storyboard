@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +18,73 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="HQ2-a4-znQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoN-E3-gue">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="84.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="video"/>
+                                        <connections>
+                                            <action selector="onVideo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KK3-lW-PuQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plb-au-D5r">
+                                        <rect key="frame" x="0.0" y="116.5" width="375" height="84.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="audio"/>
+                                        <connections>
+                                            <action selector="onAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gNp-vz-yDc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POg-c3-aJ4">
+                                        <rect key="frame" x="0.0" y="233" width="375" height="84.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="gallery"/>
+                                        <connections>
+                                            <action selector="onGallery:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sZb-8B-0Ev"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCV-pv-qIu">
+                                        <rect key="frame" x="0.0" y="349.5" width="375" height="84.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="notification"/>
+                                        <connections>
+                                            <action selector="onNotification:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Jxf-g2-3qf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZN-aj-ayx">
+                                        <rect key="frame" x="0.0" y="466" width="375" height="84.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="contact"/>
+                                        <connections>
+                                            <action selector="onContact:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="U6t-b7-qbX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kf-1h-etj">
+                                        <rect key="frame" x="0.0" y="582.5" width="375" height="84.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="location"/>
+                                        <connections>
+                                            <action selector="onLocation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XVe-D3-kwA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HQ2-a4-znQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="NCX-xy-ufj"/>
+                            <constraint firstAttribute="trailing" secondItem="HQ2-a4-znQ" secondAttribute="trailing" id="SQB-3L-rvE"/>
+                            <constraint firstItem="HQ2-a4-znQ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Xq8-QG-S4R"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="HQ2-a4-znQ" secondAttribute="bottom" id="o4r-oV-b6f"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="134"/>
         </scene>
     </scenes>
 </document>
