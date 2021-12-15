@@ -1,0 +1,6 @@
+framework module PermissionCenter {
+  umbrella header "PermissionCenter-umbrella.h"
+
+  export *
+  module * { export * }
+}

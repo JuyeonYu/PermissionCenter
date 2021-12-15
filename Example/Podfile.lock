@@ -1,0 +1,16 @@
+PODS:
+  - PermissionCenter (0.1.0)
+
+DEPENDENCIES:
+  - PermissionCenter (from `../`)
+
+EXTERNAL SOURCES:
+  PermissionCenter:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PermissionCenter: 5c755b5f70dd447e643a392ae53cda323c3fac77
+
+PODFILE CHECKSUM: fa0b0f3fe8429e33d521a5a46bec1ece98b06206
+
+COCOAPODS: 1.10.2
