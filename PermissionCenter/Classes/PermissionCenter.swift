@@ -78,7 +78,7 @@ extension PermissionCenter {
         }
     }
     func gotoAppPrivacySettings() {
-        guard let url = URL(string: UIApplicationOpenSettingsURLString),
+        guard let url = URL(string: UIApplication.openSettingsURLString),
             UIApplication.shared.canOpenURL(url) else {
                 assertionFailure("Not able to open App privacy settings")
                 return
@@ -148,7 +148,7 @@ extension PermissionCenter {
     func showLimitedCase(completion: (() -> Void)?) {
         guard let topViewController = UIApplication.getTopViewController() else { return }
         let actionSheet = UIAlertController(title: "",
-                                            message: PermissionCenterString.selectMorePhotosOrGoSetting,
+                                            message: PermissionCenterString.limitedPhotoUserMessage,
                                             preferredStyle: .actionSheet)
         if #available(iOS 14, *) {
             actionSheet.addAction(UIAlertAction(title: PermissionCenterString.selectMorePhotos, style: .default) { _ in
