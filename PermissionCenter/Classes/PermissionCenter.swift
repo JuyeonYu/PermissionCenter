@@ -42,8 +42,8 @@ extension PermissionCenter {
             }
         }
     }
-    func requestPermission(for type: PermissionCenter, completion: (() -> Void)?) {
-        switch type {
+    public func requestPermission(completion: (() -> Void)?) {
+        switch self {
         case .video:
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted { completion?() }
@@ -105,7 +105,7 @@ extension PermissionCenter {
 extension PermissionCenter {
     func showVideo(completion: (() -> Void)?) {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
-        case .notDetermined: requestPermission(for: .video, completion: completion)
+        case .notDetermined: requestPermission(completion: completion)
         case .denied: showDeniedCase()
         case .authorized: completion?()
         default: break
@@ -118,7 +118,7 @@ extension PermissionCenter {
 extension PermissionCenter {
     func showAudio(completion: (() -> Void)?) {
         switch AVCaptureDevice.authorizationStatus(for: .audio) {
-        case .notDetermined: requestPermission(for: .audio, completion: completion)
+        case .notDetermined: requestPermission(completion: completion)
         case .denied: showDeniedCase()
         case .authorized: completion?()
         default: break
@@ -138,7 +138,7 @@ extension PermissionCenter {
         }
 
         switch status {
-        case .notDetermined: requestPermission(for: .gallery, completion: completion)
+        case .notDetermined: requestPermission(completion: completion)
         case .denied: showDeniedCase()
         case .authorized: completion?()
         case .limited: showLimitedCase { completion?() }
@@ -172,7 +172,7 @@ extension PermissionCenter {
     func showNotification(completion: (() -> Void)?) {
         UNUserNotificationCenter.current().getNotificationSettings(completionHandler: {
             switch $0.authorizationStatus {
-            case .notDetermined: requestPermission(for: .notification, completion: completion)
+            case .notDetermined: requestPermission(completion: completion)
             case .denied: showDeniedCase()
             case .authorized, .ephemeral: completion?()
             default: break
@@ -186,7 +186,7 @@ extension PermissionCenter {
 extension PermissionCenter {
     func showContact(completion: (() -> Void)?) {
         switch CNContactStore.authorizationStatus(for: .contacts) {
-        case .notDetermined: requestPermission(for: .contact, completion: completion)
+        case .notDetermined: requestPermission(completion: completion)
         case .denied: showDeniedCase()
         case .authorized: completion?()
         default: break
@@ -205,7 +205,7 @@ extension PermissionCenter {
             status =  CLLocationManager.authorizationStatus()
         }
         switch status {
-        case .notDetermined: requestPermission(for: .location(type: type), completion: completion)
+        case .notDetermined: requestPermission(completion: completion)
         case .denied: showDeniedCase()
         case .authorized, .authorizedAlways, .authorizedWhenInUse: completion?()
         default: break
