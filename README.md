@@ -51,6 +51,29 @@ PermissionCenterString.deniedUserMessage = "you had denied the permission.\nyou 
 PermissionCenterString.limitedPhotoUserMessage = "access to part of photos."
 ```
 
+#### don't forget to add your property in plist.
+
+```
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string></string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string></string>
+<key>NSMicrophoneUsageDescription</key>
+<string></string>
+<key>NSLocationWhenInUseUsageDescription</key>
+<string></string>
+<key>NSLocationUsageDescription</key>
+<string></string>
+<key>NSLocationAlwaysUsageDescription</key>
+<string></string>
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string></string>
+<key>NSContactsUsageDescription</key>
+<string></string>
+<key>NSCameraUsageDescription</key>
+<string></string>
+```
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
