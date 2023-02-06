@@ -19,7 +19,6 @@ Imagine, now you want to open gallery. There are some inevitable steps.
 		1. Not determined -> request access permission
 			1. If they accept the request -> action
 		2. Denied -> induce them to access permission
-		3. Limited -> induce them to access all permission or to use more photos
 
 These steps correspond to functions that require all permissions, not just the gallery.
 
@@ -35,7 +34,7 @@ PermissionCenter.video.action {
 
 if you don't have permission, Permission Center present alert depending on status.
 
-<img src = https://user-images.githubusercontent.com/50232474/146294407-0859b308-9aa6-4058-87b1-1ddd873ec0c4.PNG width = "30%" height = "30%"> <img src = https://user-images.githubusercontent.com/50232474/146294424-b0dbc276-4956-4f91-9e7f-ff5f704732fa.PNG width = "30%" height = "30%"> <img src = https://user-images.githubusercontent.com/50232474/146294429-bc104101-0a3a-42ed-a280-8fb221f43939.PNG width = "30%" height = "30%">
+<img src = https://user-images.githubusercontent.com/50232474/146294407-0859b308-9aa6-4058-87b1-1ddd873ec0c4.PNG width = "30%" height = "30%"> <img src = https://user-images.githubusercontent.com/50232474/146294429-bc104101-0a3a-42ed-a280-8fb221f43939.PNG width = "30%" height = "30%">
 
 before using, change the message if you want
 
