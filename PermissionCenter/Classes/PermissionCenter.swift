@@ -141,28 +141,9 @@ extension PermissionCenter {
         case .notDetermined: requestPermission(completion: completion)
         case .denied: showDeniedCase()
         case .authorized: completion?()
-        case .limited: showLimitedCase { completion?() }
+        case .limited: completion?()
         default: break
         }
-    }
-    func showLimitedCase(completion: (() -> Void)?) {
-        guard let topViewController = UIApplication.getTopViewController() else { return }
-        let actionSheet = UIAlertController(title: "",
-                                            message: PermissionCenterString.limitedPhotoUserMessage,
-                                            preferredStyle: .actionSheet)
-        if #available(iOS 14, *) {
-            actionSheet.addAction(UIAlertAction(title: PermissionCenterString.selectMorePhotos, style: .default) { _ in
-                PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: topViewController)
-            })
-        }
-        actionSheet.addAction(UIAlertAction(title: PermissionCenterString.allowAllPhotos, style: .default) { _ in
-            gotoAppPrivacySettings()
-        })
-        actionSheet.addAction(UIAlertAction(title: PermissionCenterString.useCurrentPhoto, style: .default) { _ in
-            completion?()
-        })
-        actionSheet.addAction(UIAlertAction(title: PermissionCenterString.cancel, style: .cancel, handler: nil))
-        topViewController.present(actionSheet, animated: true, completion: nil)
     }
 }
 
