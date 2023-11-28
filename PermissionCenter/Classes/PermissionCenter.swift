@@ -85,9 +85,18 @@ extension PermissionCenter {
         }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
-    func showDeniedCase() {
+    func showDeniedCase(type: PermissionCenter) {
+        var sort: String
+        switch type {
+        case .video: sort = PermissionCenterString.video
+        case .audio: sort = PermissionCenterString.audio
+        case .gallery: sort = PermissionCenterString.gallery
+        case .notification: sort = PermissionCenterString.notification
+        case .contact: sort = PermissionCenterString.contact
+        case .location(_): sort = PermissionCenterString.location
+        }
         guard let topViewController = UIApplication.getTopViewController() else { return }
-        let alert = UIAlertController(title: PermissionCenterString.deniedUserTitle,
+        let alert = UIAlertController(title: sort + PermissionCenterString.deniedUserTitle,
                                       message: PermissionCenterString.deniedUserMessage,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: PermissionCenterString.notNow, style: .cancel, handler: nil))
@@ -106,7 +115,7 @@ extension PermissionCenter {
     func showVideo(completion: (() -> Void)?) {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .notDetermined: requestPermission(completion: completion)
-        case .denied: showDeniedCase()
+        case .denied: showDeniedCase(type: .video)
         case .authorized: completion?()
         default: break
         }
@@ -119,7 +128,7 @@ extension PermissionCenter {
     func showAudio(completion: (() -> Void)?) {
         switch AVCaptureDevice.authorizationStatus(for: .audio) {
         case .notDetermined: requestPermission(completion: completion)
-        case .denied: showDeniedCase()
+        case .denied: showDeniedCase(type: .audio)
         case .authorized: completion?()
         default: break
         }
@@ -139,7 +148,7 @@ extension PermissionCenter {
 
         switch status {
         case .notDetermined: requestPermission(completion: completion)
-        case .denied: showDeniedCase()
+        case .denied: showDeniedCase(type: .gallery)
         case .authorized: completion?()
         case .limited: completion?()
         default: break
@@ -154,7 +163,7 @@ extension PermissionCenter {
         UNUserNotificationCenter.current().getNotificationSettings(completionHandler: {
             switch $0.authorizationStatus {
             case .notDetermined: requestPermission(completion: completion)
-            case .denied: showDeniedCase()
+            case .denied: showDeniedCase(type: .notification)
             case .authorized, .ephemeral: completion?()
             default: break
             }
@@ -168,7 +177,7 @@ extension PermissionCenter {
     func showContact(completion: (() -> Void)?) {
         switch CNContactStore.authorizationStatus(for: .contacts) {
         case .notDetermined: requestPermission(completion: completion)
-        case .denied: showDeniedCase()
+        case .denied: showDeniedCase(type: .contact)
         case .authorized: completion?()
         default: break
         }
@@ -187,7 +196,7 @@ extension PermissionCenter {
         }
         switch status {
         case .notDetermined: requestPermission(completion: completion)
-        case .denied: showDeniedCase()
+        case .denied: showDeniedCase(type: .location(type: .always))
         case .authorized, .authorizedAlways, .authorizedWhenInUse: completion?()
         default: break
         }
